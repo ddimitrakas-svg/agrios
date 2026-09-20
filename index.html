@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Άγριος The Dirty Butcher | Χασαποταβέρνα στην Αθήνα</title>
+<meta name="description" content="Άγριος The Dirty Butcher: χασαποταβέρνα με ανοιχτή σχάρα στην Κων/νου Βεντήρη 5, Αθήνα. Το κρέας κόβεται μπροστά σου και ψήνεται την ώρα που το παραγγέλνεις.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F3F0;
+    --surface: #FFFFFF;
+    --ink: #171312;
+    --muted: #6A635E;
+    --line: rgba(23, 19, 18, 0.12);
+    --glass: rgba(245, 243, 240, 0.78);
+    --accent: #5E1522;
+    --accent-ink: #FFF7F4;
+    --deep: #171312;
+    --deep-ink: #F5F3F0;
+    --display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+    --text: "Inter", "Helvetica Neue", Arial, sans-serif;
+    --radius: 28px;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #110D0C;
+      --surface: #1B1615;
+      --ink: #F3EEE9;
+      --muted: #A39A93;
+      --line: rgba(243, 238, 233, 0.14);
+      --glass: rgba(27, 22, 21, 0.72);
+      --accent: #B12D42;
+      --deep: #241C1A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #110D0C;
+    --surface: #1B1615;
+    --ink: #F3EEE9;
+    --muted: #A39A93;
+    --line: rgba(243, 238, 233, 0.14);
+    --glass: rgba(27, 22, 21, 0.72);
+    --accent: #B12D42;
+    --deep: #241C1A;
+  }
+
+  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 5.5rem); scroll-behavior: smooth; height: 100%; }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--text);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  [hidden] { display: none !important; }
+
+  .wrap { width: min(1160px, 100% - 2.5rem); margin-inline: auto; }
+  h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.025em; }
+  h1 { font-weight: 800; font-size: clamp(2.8rem, 7.2vw, 5.8rem); line-height: 0.98; }
+  h2 { font-weight: 700; font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.05; }
+  h3 { font-weight: 600; font-size: 1.4rem; line-height: 1.2; letter-spacing: -0.015em; }
+  p { margin: 0; }
+  section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 3.1rem; padding: 0 1.6rem;
+    font-family: var(--display); font-weight: 600; font-size: 1.05rem;
+    border-radius: 999px; border: 1.5px solid transparent;
+    text-decoration: none; cursor: pointer;
+    transition: transform .15s ease, background-color .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:hover { background: var(--ink); color: var(--bg); }
+  .btn-outline { border-color: var(--line); color: var(--ink); background: transparent; }
+  .btn-outline:hover { border-color: var(--ink); }
+  .btn-light { background: #F5F3F0; color: #171312; }
+  .btn-light:hover { background: #fff; }
+
+  /* Header */
+  .site-header { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 0.75rem); z-index: 20; padding-top: 0.75rem; }
+  .bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.55rem 0.6rem 0.55rem 1.4rem;
+    background: var(--glass);
+    -webkit-backdrop-filter: saturate(160%) blur(16px);
+    backdrop-filter: saturate(160%) blur(16px);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+  .brand { font-family: var(--display); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.02em; text-decoration: none; }
+  .nav { display: flex; align-items: center; gap: 1.6rem; }
+  .nav a:not(.btn) { font-size: 0.95rem; font-weight: 500; text-decoration: none; color: var(--muted); }
+  .nav a:not(.btn):hover { color: var(--ink); }
+  .nav .btn { min-height: 2.6rem; padding: 0 1.2rem; font-size: 0.95rem; }
+  @media (max-width: 760px) { .nav a:not(.btn) { display: none; } }
+
+  /* Hero */
+  .hero { padding-top: clamp(2rem, 5vw, 4rem); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  .hero-copy p.lede { margin: 1.6rem 0 2rem; max-width: 33rem; font-size: 1.2rem; color: var(--muted); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  .grill {
+    position: relative; overflow: hidden; isolation: isolate;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
+    background:
+      radial-gradient(90% 60% at 50% 105%, #FF8A3D 0%, #D9401F 32%, #7A1A26 62%, #1A0709 100%);
+  }
+  .grill::before {
+    content: ""; position: absolute; inset: 0; z-index: 0;
+    background: repeating-linear-gradient(90deg, rgba(14, 7, 7, 0.94) 0 9px, transparent 9px 36px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 8%, #000 55%);
+    mask-image: linear-gradient(to bottom, transparent 8%, #000 55%);
+  }
+  .grill::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 100%; z-index: 0;
+    background: repeating-linear-gradient(0deg, rgba(14, 7, 7, 0.9) 0 7px, transparent 7px 120px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 40%, #000 90%);
+    mask-image: linear-gradient(to bottom, transparent 40%, #000 90%);
+  }
+  .chip {
+    position: absolute; z-index: 1;
+    padding: 0.9rem 1.15rem;
+    background: rgba(255, 255, 255, 0.16);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 20px;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .chip strong { display: block; font-family: var(--display); font-weight: 700; font-size: 2rem; letter-spacing: -0.02em; }
+  .chip span { font-size: 0.88rem; opacity: 0.9; }
+  .chip-rating { left: 1.25rem; bottom: 1.25rem; }
+  .chip-price { right: 1.25rem; top: 1.25rem; text-align: right; }
+  .chip-price strong { font-size: 1.35rem; }
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .grill { aspect-ratio: 4 / 3; }
+  }
+
+  /* About: bento */
+  .section-head { margin-bottom: 2.25rem; max-width: 40rem; }
+  .bento { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
+  .tile { border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.25rem); background: var(--surface); border: 1px solid var(--line); }
+  .tile p { margin-top: 0.7rem; color: var(--muted); max-width: 30rem; }
+  .tile-grill { grid-column: span 3; grid-row: span 2; background: var(--accent); color: var(--accent-ink); border-color: transparent; display: flex; flex-direction: column; justify-content: flex-end; min-height: 22rem; }
+  .tile-grill h3 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; }
+  .tile-grill p { color: rgba(255, 247, 244, 0.82); }
+  .tile-meats { grid-column: span 3; }
+  .tile-wine { grid-column: span 3; }
+  .tile-space { grid-column: span 6; background: var(--deep); color: var(--deep-ink); border-color: transparent; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .tile-space p { color: rgba(245, 243, 240, 0.72); }
+  @media (max-width: 860px) {
+    .tile-grill, .tile-meats, .tile-wine, .tile-space { grid-column: span 6; grid-row: auto; }
+    .tile-grill { min-height: 16rem; }
+  }
+
+  /* Menu */
+  .menu-top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.25rem 2rem; margin-bottom: 1.75rem; }
+  .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .filter {
+    font-family: var(--display); font-weight: 600; font-size: 0.98rem;
+    padding: 0.55rem 1.1rem; border-radius: 999px;
+    border: 1.5px solid var(--line); background: transparent; color: var(--ink); cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .filter:hover { border-color: var(--ink); }
+  .filter[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .menu-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 6vw, 5rem); }
+  .menu-item { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 1.05rem 0; border-top: 1px solid var(--line); }
+  .menu-item span:first-child { font-family: var(--display); font-weight: 600; font-size: 1.4rem; letter-spacing: -0.015em; line-height: 1.2; }
+  .menu-item .tag { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
+  .menu-note { margin-top: 1.75rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; color: var(--muted); }
+  @media (max-width: 720px) { .menu-list { grid-template-columns: 1fr; } }
+
+  /* Reviews */
+  .reviews-top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 2rem; }
+  .score { display: flex; align-items: baseline; gap: 0.75rem; color: var(--muted); }
+  .score strong { font-family: var(--display); font-weight: 800; font-size: 3rem; letter-spacing: -0.03em; color: var(--ink); line-height: 1; }
+  .quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .quote { margin: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; padding: clamp(1.5rem, 3vw, 2rem); border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+  .quote blockquote { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.5rem; line-height: 1.25; letter-spacing: -0.015em; }
+  .quote figcaption { font-size: 0.9rem; color: var(--muted); }
+  @media (max-width: 860px) {
+    .quotes { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0.85rem; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; }
+    .quote { flex: 0 0 82%; scroll-snap-align: start; }
+  }
+
+  /* Visit */
+  .visit-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .visit address { font-style: normal; font-family: var(--display); font-weight: 600; font-size: 1.6rem; line-height: 1.3; letter-spacing: -0.015em; margin: 1.25rem 0 1.75rem; }
+  .details { margin: 0; padding: clamp(0.75rem, 2vw, 1.25rem) clamp(1.4rem, 3vw, 2.25rem); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+  .details div { padding: 1.1rem 0; border-top: 1px solid var(--line); }
+  .details div:first-child { border-top: 0; }
+  .details dt { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.15rem; }
+  .details dd { margin: 0; font-family: var(--display); font-weight: 600; font-size: 1.3rem; letter-spacing: -0.01em; line-height: 1.3; }
+  .details dd a { text-underline-offset: 4px; }
+  .details dd.plain { font-family: var(--text); font-weight: 400; font-size: 1.05rem; letter-spacing: 0; }
+  @media (max-width: 860px) { .visit-grid { grid-template-columns: 1fr; } }
+
+  footer { padding: 2rem 0 2.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; }
+  footer strong { font-family: var(--display); color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#top">Άγριος</a>
+      <nav class="nav" aria-label="Κύριο μενού">
+        <a href="#magazi">Το μαγαζί</a>
+        <a href="#menu">Μενού</a>
+        <a href="#kritikes">Κριτικές</a>
+        <a href="#epikoinonia">Επικοινωνία</a>
+        <a class="btn btn-primary" href="https://i-host.gr">Κλείσε τραπέζι</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-label="Αρχική">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>Το κρέας κόβεται μπροστά σου.</h1>
+        <p class="lede">Άγριος The Dirty Butcher, χασαποταβέρνα με ανοιχτή σχάρα στο κέντρο της Αθήνας. Ό,τι παραγγέλνεις ψήνεται εκείνη την ώρα.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://i-host.gr">Κλείσε τραπέζι</a>
+          <a class="btn btn-outline" href="tel:+306975964098">Κάλεσε 697 596 4098</a>
+        </div>
+      </div>
+
+      <div class="grill" role="img" aria-label="Ανοιχτή σχάρα με αναμμένα κάρβουνα">
+        <div class="chip chip-price"><strong>25–50 €</strong><span>ανά άτομο</span></div>
+        <div class="chip chip-rating"><strong>4,4</strong><span>332 κριτικές στο Google Maps</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="magazi">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Χασαποταβέρνα με ανοιχτή σχάρα</h2>
+      </div>
+      <div class="bento">
+        <article class="tile tile-grill">
+          <h3>Ο ψήστης δουλεύει μπροστά σου</h3>
+          <p>Κόβει και ψήνει στην ανοιχτή κουζίνα, οπότε βλέπεις όλη τη διαδρομή από τον πάγκο στο πιάτο.</p>
+        </article>
+        <article class="tile tile-meats">
+          <h3>Πρόβατο, αρνί, χοιρινό και μοσχάρι</h3>
+          <p>Από παϊδάκια και μπριζόλες μέχρι φιλέτο, συκώτι και λουκάνικο, με τηγανητές πατάτες και τζατζίκι.</p>
+        </article>
+        <article class="tile tile-wine">
+          <h3>Κάβα κρασιών</h3>
+          <p>Ετικέτες για να συνοδέψεις το κρέας σου, και τσίπουρο για το τέλος.</p>
+        </article>
+        <article class="tile tile-space">
+          <div>
+            <h3>Μεγάλος χώρος για παρέες και οικογένειες</h3>
+            <p>Τα βράδια έχει κόσμο και μουσική. Σε ώρες αιχμής σου προτείνουμε να κλείσεις τραπέζι.</p>
+          </div>
+          <a class="btn btn-light" href="https://i-host.gr">Κλείσε τραπέζι</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="menu-top">
+        <div class="section-head" style="margin:0">
+          <h2>Το μενού</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Φίλτρο μενού">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">Όλα</button>
+          <button class="filter" type="button" data-filter="grill" aria-pressed="false">Από τη σχάρα</button>
+          <button class="filter" type="button" data-filter="table" aria-pressed="false">Στο τραπέζι</button>
+          <button class="filter" type="button" data-filter="drinks" aria-pressed="false">Ποτά</button>
+        </div>
+      </div>
+
+      <ul class="menu-list">
+        <li class="menu-item" data-cat="grill"><span>Αρνίσια παϊδάκια</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Παϊδάκια προβατίνας</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Μοσχαρίσιο φιλέτο</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Μπριζόλα</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>T-bone</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Μοσχαρίσιος σιδηρόδρομος</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Τσουράσκο</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Μπιφτέκι προβάτου</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Μοσχαρίσιο μπιφτέκι</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Μοσχαρίσια ελιά</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Λουκάνικο</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="grill"><span>Συκώτι</span><span class="tag">Από τη σχάρα</span></li>
+        <li class="menu-item" data-cat="table"><span>Τζατζίκι</span><span class="tag">Στο τραπέζι</span></li>
+        <li class="menu-item" data-cat="table"><span>Τηγανητές πατάτες</span><span class="tag">Στο τραπέζι</span></li>
+        <li class="menu-item" data-cat="table"><span>Σαλάτες</span><span class="tag">Στο τραπέζι</span></li>
+        <li class="menu-item" data-cat="table"><span>Μυαλά</span><span class="tag">Στο τραπέζι</span></li>
+        <li class="menu-item" data-cat="drinks"><span>Κρασιά από την κάβα</span><span class="tag">Ποτά</span></li>
+        <li class="menu-item" data-cat="drinks"><span>Τσίπουρο</span><span class="tag">Ποτά</span></li>
+      </ul>
+
+      <div class="menu-note">
+        <p>Οι τιμές αναγράφονται στο μενού στον χώρο. Ενδεικτικά 25–50 € ανά άτομο.</p>
+        <a class="btn btn-primary" href="https://i-host.gr">Κλείσε τραπέζι</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="kritikes">
+    <div class="wrap">
+      <div class="reviews-top">
+        <h2>Τι λένε οι πελάτες</h2>
+        <p class="score"><strong>4,4</strong> <span>στα 5, από 332 κριτικές στο Google Maps</span></p>
+      </div>
+      <div class="quotes">
+        <figure class="quote">
+          <blockquote>Τα πιο εύκολα 5 αστέρια! Το κρέας στα καλύτερα του!</blockquote>
+          <figcaption>Δημήτριος Δ., κριτική στο Google</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>Το φιλέτο μοσχάρι ήταν απλά τέλειο!</blockquote>
+          <figcaption>Βασίλης Γ., κριτική στο Google</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>Ο άνθρωπος που κόβει τα κρέατα και τα ψήνει είναι μπροστά σου.</blockquote>
+          <figcaption>Onnik K., κριτική στο Google</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="epikoinonia">
+    <div class="wrap visit-grid">
+      <div>
+        <h2>Έλα να μας βρεις</h2>
+        <address>Κων/νου Βεντήρη 5<br>Αθήνα 115 28</address>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://i-host.gr">Κλείσε τραπέζι</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Agrios+The+Dirty+Butcher+Athens">Οδηγίες στον χάρτη</a>
+        </div>
+      </div>
+
+      <dl class="details">
+        <div>
+          <dt>Τηλέφωνο</dt>
+          <dd><a href="tel:+306975964098">697 596 4098</a></dd>
+        </div>
+        <div>
+          <dt>Κράτηση online</dt>
+          <dd><a href="https://i-host.gr">i-host.gr</a></dd>
+        </div>
+        <div>
+          <dt>Ώρες λειτουργίας</dt>
+          <!-- TODO: συμπλήρωσε το πλήρες ωράριο όταν το επιβεβαιώσεις με το μαγαζί -->
+          <dd class="plain">Κυριακή: έως τις 20:00. Για τις υπόλοιπες ημέρες, καλέστε μας.</dd>
+        </div>
+        <div>
+          <dt>Εξυπηρέτηση</dt>
+          <dd class="plain">Φαγητό στον χώρο</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Άγριος The Dirty Butcher</strong>
+    <span>Κων/νου Βεντήρη 5, Αθήνα 115 28</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var chips = document.querySelectorAll('.filter');
+    var items = document.querySelectorAll('.menu-item');
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var f = chip.getAttribute('data-filter');
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+        items.forEach(function (it) {
+          it.hidden = !(f === 'all' || it.getAttribute('data-cat') === f);
+        });
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
